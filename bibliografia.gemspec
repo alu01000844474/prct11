@@ -6,12 +6,12 @@ require 'bibliografia/version'
 Gem::Specification.new do |spec|
   spec.name          = "bibliografia"
   spec.version       = Bibliografia::VERSION
-  spec.authors       = ["Jose Luis Gonzalez Hernandez"]
-  spec.email         = ["alu0100611281@ull.edu.es"]
+  spec.authors       = ["Jose Luis Gonzalez Hernandez","Eleazar Díaz Delgado"]
+  spec.email         = ["alu0100611281@ull.edu.es","alu010084474@ull.edu.es"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Manipulacion de referencias}
+  spec.description   = %q{Manipulacion de referencias de bibliografia}
+  spec.homepage      = "none"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
