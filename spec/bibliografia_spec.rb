@@ -9,7 +9,7 @@ describe Bibliografia do
 			["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])
 	end
   it 'has a version number' do
-    expect(Bibliografia::VERSION).not_to be nil
+    expect(Bibliografia::VERSION).not_to be "0.1.0"
   end
 
   it 'Debe existir uno o mas autores' do
