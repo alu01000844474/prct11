@@ -1,6 +1,7 @@
 module Bibliografia
 
     class Bibliografia
+        attr_reader :autores, :titulo, :edicion, :numeroedicion, :serie, :fecha, :isbn
         def initialize(autores, titulo, serie, edicion, numEdicion,fecha,isbn)
             @autores = autores
             @titulo = titulo
@@ -39,6 +40,25 @@ module Bibliografia
             end
         end
 
+        def hasNumeroedicion
+            if @numEdicion then
+                true
+            else
+                false
+            end
+        end
+
+        def hasFecha
+            if @fecha then
+                true
+            else
+                false
+            end
+        end
+
+        def cantidadIsbn
+            @isbn.length
+        end
     end
 
 end
