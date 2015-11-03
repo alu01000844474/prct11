@@ -14,6 +14,31 @@ module Bibliografia
         def cantidadAutores()
             @autores.length()
         end
+
+        def hasTitulo
+            if @titulo then
+                true
+            else
+                false
+            end
+        end
+
+        def cantidadSeries
+            if @serie!= nil then
+                1
+            else
+                0
+            end
+        end
+
+        def hasEdicion
+            if @edicion then
+                true
+            else
+                false
+            end
+        end
+
     end
 
 end
