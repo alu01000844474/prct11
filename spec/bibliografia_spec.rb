@@ -46,7 +46,7 @@ describe Bibliografia do
   end
 	
 	it 'Existe un metodo para obtener el tıtulo' do
-	@referencia.autores.should=="Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide"
+	@referencia.titulo.should=="Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide"
   end
 
 	it 'Existe un metodo para obtener la serie' do
