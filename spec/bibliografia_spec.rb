@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe Bibliografia do
 	before :each do
-	@referencia=Bibliografia.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
+	@referencia=Bibliografia::Bibliografia.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
 			"Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide",
 			"The Facets of Ruby",
 			"Pragmatic Bookshelf",4,Date.new(2013,7,7),
 			["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])
 	end
   it 'has a version number' do
-    expect(Bibliografia::VERSION).not_to be "0.1.0"
+    expect(Bibliografia::VERSION).to be "0.1.0"
   end
 
   it 'Debe existir uno o mas autores' do
@@ -26,7 +26,7 @@ describe Bibliografia do
   end
 	
 	it 'Debe existir una editorial' do
-	@referencia.hasEdicion.should=="Pragmatic Bookshelf"
+	@referencia.hasEdicion.should==true
   end
 
   it 'Debe existir un numero de edicion' do
