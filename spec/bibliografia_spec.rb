@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Bibliografia do
 	before :each do
-	@referencia=Bibliografia.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
+	@referencia= Bibliografia::Bibliografia.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
 			"Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide",
 			"The Facets of Ruby",
 			"Pragmatic Bookshelf",4,Date.new(2013,7,7),
@@ -15,7 +15,7 @@ describe Bibliografia do
   it 'Debe existir uno o mas autores' do
 	@referencia.cantidadAutores.should>=1
   end
-  
+
 	it 'Debe existir un titulo' do
 	@referencia.hasTitulo.should==true
   end
@@ -24,7 +24,7 @@ describe Bibliografia do
 	@referencia.cantidadSeries.should >=0
 	@referencia.cantidadSeries.should <2
   end
-	
+
 	it 'Debe existir una editorial' do
 	@referencia.hasEdicion.should=="Pragmatic Bookshelf"
   end
@@ -32,11 +32,11 @@ describe Bibliografia do
   it 'Debe existir un numero de edicion' do
 	@referencia.hasNumeroedicion.should==true
   end
-	
+
 	it 'Debe existir una fecha' do
 	@referencia.hasFecha.should==true
   end
-	
+
 	it 'Debe existir uno o mas numeros ISBN' do
 	@referencia.cantidadIsbn.should >=1
   end
@@ -44,7 +44,7 @@ describe Bibliografia do
 	it 'Existe un metodo para obtener el listado de autores' do
 	@referencia.autores.should==["Dave Thomas", "Andy Hunt", "Chad Fowler"]
   end
-	
+
 	it 'Existe un metodo para obtener el tıtulo' do
 	@referencia.autores.should=="Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide"
   end
