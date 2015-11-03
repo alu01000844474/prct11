@@ -50,7 +50,7 @@ describe Bibliografia do
   end
 
 	it 'Existe un metodo para obtener la serie' do
-	@referencia.series.should=="The Facets of Ruby"
+	@referencia.serie.should=="The Facets of Ruby"
   end
 
 	it 'Existe un metodo para obtener la edicion' do
