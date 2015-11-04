@@ -2,12 +2,12 @@ module Bibliografia
 
     class Bibliografia
         attr_reader :autores, :titulo, :edicion, :numeroedicion, :serie, :fecha, :isbn
-        def initialize(autores, titulo, serie, edicion, numEdicion,fecha,isbn)
+        def initialize(autores, titulo, serie, edicion, numeroedicion,fecha,isbn)
             @autores = autores
             @titulo = titulo
             @serie = serie
             @edicion = edicion
-            @numEdicion = numEdicion
+            @numeroedicion = numeroedicion
             @fecha = fecha
             @isbn = isbn
         end
@@ -41,7 +41,7 @@ module Bibliografia
         end
 
         def hasNumeroedicion
-            if @numEdicion then
+            if @numeroedicion then
                 true
             else
                 false
@@ -59,6 +59,23 @@ module Bibliografia
         def cantidadIsbn
             @isbn.length
         end
+
+        def formatref
+            c =  ""
+            c << @autores.join(", ")
+            c << "."
+            c << "\n"
+            c << @titulo
+            c << "\n"
+            c << "(" + @serie + ")"  if cantidadSeries == 1
+            c << "\n"
+            c << @edicion + "; " + numeroedicion.to_s + " edition "
+            c << "("+ @fecha.strftime('%b %d, %Y')+")"
+            c << "\n"
+            c << @isbn.join("\n")
+            c
+        end
+
     end
 
 end
