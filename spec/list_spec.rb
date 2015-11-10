@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'date'
 
 describe Bibliografia do
 	describe Bibliografia::Node do
