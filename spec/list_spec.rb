@@ -26,11 +26,15 @@ describe Bibliografia do
 			expect(@list.takeFirst).to eq nil
 		end
 
-		it 'Se puede insertar un elemento' do
+		it 'Se puede insertar al principio un elemento' do
 			expect(@list2.takeFirst).to eq nil
 			expect(@list2.put("hola")).to eq nil
 			expect(@list2.takeFirst).to eq "hola"
 		end
+
+    it 'Se puede insertar un elemento al final' do
+      expect(@list.pushEnd(6)).to eq @list.last
+    end
 
 		it 'Se puede insertar varios elementos' do 
 			expect(@list3.length).to eq 10
