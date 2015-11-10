@@ -16,7 +16,7 @@ module Bibliografia
 		def takeFirst
 			if @node != nil
 				value = @node.value
-				@node = nil
+				@node = @node.next
 				return value
 			else
 				return nil
@@ -26,6 +26,16 @@ module Bibliografia
 		def put(val)
 			@node = Node.new(val,@node)
 			nil
+		end
+
+		def length
+			aux = @node
+			count = 0
+			while aux!=nil
+				count = count + 1
+				aux = aux.next
+			end
+			count
 		end
 	end
 end
