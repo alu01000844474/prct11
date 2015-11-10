@@ -16,6 +16,7 @@ describe Bibliografia do
 		before :all do
 			@list = Bibliografia::List.new(0)
 			@list2 = Bibliografia::List.new()
+			@list3 = Bibliografia::List.new(0,1,2,3,4,5,6,7,8,9)
 		end
 
 		it 'Se extrae el primer elemento de la lista' do
@@ -27,6 +28,12 @@ describe Bibliografia do
 			expect(@list2.takeFirst).to eq nil
 			expect(@list2.put("hola")).to eq nil
 			expect(@list2.takeFirst).to eq "hola"
+		end
+
+		it 'Se puede insertar varios elementos' do 
+			expect(@list3.length).to eq 10
+			@list3.takeFirst
+			expect(@list3.length).to eq 9
 		end
 	end
 end
