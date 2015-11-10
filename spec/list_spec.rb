@@ -12,4 +12,14 @@ describe Bibliografia do
 			expect(@node.next).to be @node2
 		end
 	end
+	describe Bibliografia::List do
+		before :all do
+			@list = Bibliografia::List.new(0)
+		end
+
+		it 'Se extrae el primer elemento de la lista' do
+			expect(@list.takeFirst).to eq 0
+			expect(@list.takeFirst).to eq nil
+		end
+	end
 end
