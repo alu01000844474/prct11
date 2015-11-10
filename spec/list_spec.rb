@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'spec_helper'
 require 'date'
 
@@ -60,4 +61,51 @@ describe Bibliografia do
       expect(@list4.last).to eq "last"
     end
 	end
+  describe Bibliografia do
+    before :all do
+      @ruby = Bibliografia::Bibliografia.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
+                                             "Programmin Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
+                                             "The Facets of Ruby",
+                                             "Pragmatic Bookshelf",
+                                             4,
+                                             Date.new(2013,7,7),
+                                             ["ISBN-13: 978-1937785499","ISBN-10: 1937785491"])
+
+      @git = Bibliografia::Bibliografia.new(["Scott Chacon"],
+                                            "Pro Git 2009th Edition",
+                                            "Pro",
+                                            "Apress",
+                                            2009,
+                                            Date.new(2009,8,27),
+                                            ["ISBN-13: 9781430218333", "ISBN-12: 1430218339"])
+
+      @ruby2 = Bibliografia::Bibliografia.new(["David Flanagan", "Yukihiro Matsumoto"],
+                                              "The Ruby Programmin Language",
+                                              nil,
+                                              "O'Really Media",
+                                              1,
+                                              Date.new(2008,2,4),
+                                              ["ISBN-10: 0596516177", "ISBN-13: 978-0596516178"])
+
+      @rspec = Bibliografia::Bibliografia.new(["David Chelimsky", "Dave Astels", "Bryan Helmkamp", "Dan North", "Zach Dennis", "Aslak Hellesoy"],
+                                               "The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends",
+                                               "The Facets of Ruby",
+                                               "Pragmatic Bookshelf",
+                                               1,
+                                               Date.new(2012,12,25),
+                                               ["ISBN-10: 1934356379","ISBN-13: 978-1934356371"])
+
+      @git2 =Bibliografia::Bibliografia.new(["Richard E. Silverman"],
+                                            "Git Pocket Guide",
+                                            nil,
+                                            "O'Really Media",
+                                            1,
+                                            Date.new(2013, 8, 2),
+                                            ["ISBN-10: 1449325866","ISBN-13: 978-1449325862"])
+    end
+
+    it "none" do
+
+    end
+  end
 end
