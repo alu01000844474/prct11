@@ -8,7 +8,7 @@ module Bibliografia
 				@node = nil
 			else
 				for val in vals do
-					put val
+					pushEnd val
 				end
 			end
 		end
@@ -27,6 +27,18 @@ module Bibliografia
 			@node = Node.new(val,@node)
 			nil
 		end
+
+    def pushEnd(val)
+      if @node==nil
+        @node = Node.new(val,nil)
+        return
+      end
+      aux = @node
+      while aux.next != nil
+        aux = aux.next
+      end
+      aux.next = Node.new(val,nil)
+    end
 
 		def length
 			aux = @node

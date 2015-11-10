@@ -18,7 +18,7 @@ describe Bibliografia do
 			@list = Bibliografia::List.new(0)
 			@list2 = Bibliografia::List.new()
 			@list3 = Bibliografia::List.new(0,1,2,3,4,5,6,7,8,9)
-			@list4 = Bibliografia::List.new("last","head")
+			@list4 = Bibliografia::List.new("head","last")
 		end
 
 		it 'Se extrae el primer elemento de la lista' do
@@ -33,7 +33,8 @@ describe Bibliografia do
 		end
 
     it 'Se puede insertar un elemento al final' do
-      expect(@list.pushEnd(6)).to eq @list.last
+      @list.pushEnd(5)
+      expect(@list.last).to eq 5
     end
 
 		it 'Se puede insertar varios elementos' do 
