@@ -28,9 +28,11 @@ describe Bibliografia do
 		end
 
     it 'Se extrae el ultimo elemento de la lista' do
-      expect(@list.takeLast).to eq 'c'
-      expect(@list.takeLast).to eq 'b'
-      expect(@list.takeLast).to eq 'a'
+      expect(@list5.takeLast).to eq 'c'
+      expect(@list5.last).to eq 'b'
+      expect(@list5.takeLast).to eq 'b'
+      expect(@list5.last).to eq 'a'
+      expect(@list5.takeLast).to eq 'a'
     end
 
 		it 'Se puede insertar al principio un elemento' do

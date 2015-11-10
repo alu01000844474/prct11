@@ -23,6 +23,27 @@ module Bibliografia
 			end
 		end
 
+    def takeLast
+      if @node != nil
+        if @node.next!=nil
+          newEnd = @node
+          aux = @node.next
+          while aux.next != nil
+            newEnd = aux
+            aux = aux.next
+          end
+          newEnd.next = nil
+          aux.value
+        else
+          value = @node.value
+          @node = nil
+          value
+        end
+      else
+        nil
+      end
+    end
+
 		def put(val)
 			@node = Node.new(val,@node)
 			nil
