@@ -19,12 +19,19 @@ describe Bibliografia do
 			@list2 = Bibliografia::List.new()
 			@list3 = Bibliografia::List.new(0,1,2,3,4,5,6,7,8,9)
 			@list4 = Bibliografia::List.new("head","last")
+      @list5 = Bibliografia::List.new('a','b','c')
 		end
 
 		it 'Se extrae el primer elemento de la lista' do
 			expect(@list.takeFirst).to eq 0
 			expect(@list.takeFirst).to eq nil
 		end
+
+    it 'Se extrae el ultimo elemento de la lista' do
+      expect(@list.takeLast).to eq 'c'
+      expect(@list.takeLast).to eq 'b'
+      expect(@list.takeLast).to eq 'a'
+    end
 
 		it 'Se puede insertar al principio un elemento' do
 			expect(@list2.takeFirst).to eq nil
