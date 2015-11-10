@@ -37,5 +37,13 @@ module Bibliografia
 			end
 			count
 		end
+
+		def head
+			if @node != nil
+				@node.value
+			else
+				nil
+			end
+		end
 	end
 end
