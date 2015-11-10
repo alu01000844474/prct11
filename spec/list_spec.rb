@@ -8,8 +8,8 @@ describe Bibliografia do
 			@node = Bibliografia::Node.new("dato", @node2) 
 		end
 
-		it 'Debe existir un nodo de la lista con sus datos y su siguiente'  do	
-			expect(@node.value).to eq "dato"		
+		it 'Debe existir un nodo de la lista con sus datos y su siguiente'  do
+			expect(@node.value).to eq "dato"
 			expect(@node.next).to be @node2
 		end
 	end
@@ -18,7 +18,7 @@ describe Bibliografia do
 			@list = Bibliografia::List.new(0)
 			@list2 = Bibliografia::List.new()
 			@list3 = Bibliografia::List.new(0,1,2,3,4,5,6,7,8,9)
-			@list4 = Bibliografia::List.new("head")
+			@list4 = Bibliografia::List.new("head", "last")
 		end
 
 		it 'Se extrae el primer elemento de la lista' do
@@ -41,5 +41,9 @@ describe Bibliografia do
 		it 'Debe existir una lista con su cabeza' do 
 			expect(@list4.head).to eq "head"
 		end
+
+    it 'Debe existir una lista con su ultimo elemeto ' do
+      expect(@list4.last).to eq "last"
+    end
 	end
 end

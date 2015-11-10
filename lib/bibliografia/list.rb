@@ -6,7 +6,7 @@ module Bibliografia
 		def initialize(*vals)
 			if vals.length == 0
 				@node = nil
-			else	
+			else
 				for val in vals do
 					put val
 				end
