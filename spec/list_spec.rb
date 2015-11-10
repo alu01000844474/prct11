@@ -18,7 +18,7 @@ describe Bibliografia do
 			@list = Bibliografia::List.new(0)
 			@list2 = Bibliografia::List.new()
 			@list3 = Bibliografia::List.new(0,1,2,3,4,5,6,7,8,9)
-			@list4 = Bibliografia::List.new("head", "last")
+			@list4 = Bibliografia::List.new("last","head")
 		end
 
 		it 'Se extrae el primer elemento de la lista' do

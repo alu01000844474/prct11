@@ -45,5 +45,13 @@ module Bibliografia
 				nil
 			end
 		end
+
+    def last
+      aux = @node
+      while aux.next!=nil
+        aux = aux.next
+      end
+      aux.value
+    end
 	end
 end
