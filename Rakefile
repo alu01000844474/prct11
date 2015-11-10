@@ -20,12 +20,5 @@ task :release do
 	sh ""
 end
 
-desc "Run RSpec code bibliografia"
-task :spec do
-	sh ""
-end
-
-
-
 
 
