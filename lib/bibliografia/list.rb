@@ -3,8 +3,14 @@ module Bibliografia
 	Node = Struct.new(:value, :next)
 
 	class List
-		def initialize(val)
-			@node = Node.new(val, nil)
+		def initialize(*vals)
+			if vals.length == 0
+				@node = nil
+			else	
+				for val in vals do
+					put val
+				end
+			end
 		end
 
 		def takeFirst
@@ -15,6 +21,11 @@ module Bibliografia
 			else
 				return nil
 			end
+		end
+
+		def put(val)
+			@node = Node.new(val,@node)
+			nil
 		end
 	end
 end
