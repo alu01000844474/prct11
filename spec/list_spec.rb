@@ -102,10 +102,16 @@ describe Bibliografia do
                                             1,
                                             Date.new(2013, 8, 2),
                                             ["ISBN-10: 1449325866","ISBN-13: 978-1449325862"])
+
+      @list = Bibliografia::List.new(@ruby, @git, @ruby2, @rspec, @git2)
     end
 
-    it "none" do
-
+    it "Pruebas con lista de referencias" do
+      expect(@list.takeLast).to be @git2
+      expect(@list.takeLast).to be @rspec
+      expect(@list.takeLast).to be @ruby2
+      expect(@list.takeLast).to be @git
+      expect(@list.takeLast).to be @ruby
     end
   end
 end
