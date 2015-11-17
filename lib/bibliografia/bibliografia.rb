@@ -59,7 +59,7 @@ module Bibliografia
         def cantidadIsbn
             @isbn.length
         end
-
+        
         def formatref
             c =  ""
             c << @autores.join(", ")
