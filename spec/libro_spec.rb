@@ -18,5 +18,21 @@ describe Bibliografia do
 			    "Pragmatic Bookshelf",4,Date.new(2013,7,7),
 			    ["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])).to_not be nil
         end
+        
+        it "Debe ser un Libro" do
+		    expect(@libro.is_a?Bibliografia::Libro).to eq true 
+		end
+		
+		it "Debe se una subclase de Bibliografia" do
+		    expect(@libro.is_a?Bibliografia::Bibliografia).to eq true 
+		end
+		
+		it "Debe se una subclase de Object" do
+		    expect(@libro.is_a?Object).to eq true 
+		end
+	    
+	    it "Debe se una subclase de BasicObject" do
+		    expect(@libro.is_a?BasicObject).to eq true 
+		end
 	end
 end
