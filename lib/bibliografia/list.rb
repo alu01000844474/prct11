@@ -1,11 +1,12 @@
 module Bibliografia
 	# Struct of a list
-	Node = Struct.new(:value, :next)
+	Node = Struct.new(:value, :next, :back)
 
 	class List
 		def initialize(*vals)
 			if vals.length == 0
-				@node = nil
+				@head = nil
+				@last = nil
 			else
 				for val in vals do
 					pushEnd val
@@ -14,55 +15,63 @@ module Bibliografia
 		end
 
 		def takeFirst
-			if @node != nil
-				value = @node.value
-				@node = @node.next
-				return value
-			else
-				return nil
-			end
+			if (@head==@last)
+        if @head == nil
+        	return nil
+        end
+        value = @head.value
+        @head = nil
+        @last = nil
+        return value
+   	  else
+        value = @head.value
+        @head = @head.next
+        @head.back = nil
+        return value
+      end
 		end
 
     def takeLast
-      if @node != nil
-        if @node.next!=nil
-          newEnd = @node
-          aux = @node.next
-          while aux.next != nil
-            newEnd = aux
-            aux = aux.next
-          end
-          newEnd.next = nil
-          aux.value
-        else
-          value = @node.value
-          @node = nil
-          value
+			if (@head==@last)
+        if @last == nil
+        	return nil
         end
-      else
-        nil
+        value = @last.value
+        @head = nil
+        @last = nil
+        return value
+   	  else
+        value = @last.value
+        @last = @last.back
+        @last.next = nil
+        return value
       end
     end
 
 		def put(val)
-			@node = Node.new(val,@node)
+			if @head == nil
+				@head = @last = Node.new(val,nil,nil)
+			else
+				aux = Node.new(val,@head, nil)
+				@head.back = aux
+				@head = aux
+			end
 			nil
 		end
 
     def pushEnd(val)
-      if @node==nil
-        @node = Node.new(val,nil)
-        return
-      end
-      aux = @node
-      while aux.next != nil
-        aux = aux.next
-      end
-      aux.next = Node.new(val,nil)
+      if @last==nil
+				@head = @last = Node.new(val,nil,nil)
+			else
+				aux = Node.new(val,nil,@last)
+				@last.next = aux
+				@last = aux
+			end
+			nil
     end
 
 		def length
-			aux = @node
+			aux = @head
 			count = 0
 			while aux!=nil
 				count = count + 1
@@ -72,19 +81,19 @@ module Bibliografia
 		end
 
 		def head
-			if @node != nil
-				@node.value
+			if @head != nil
+				@head.value
 			else
 				nil
 			end
 		end
 
     def last
-      aux = @node
-      while aux.next!=nil
-        aux = aux.next
-      end
-      aux.value
-    end
+			if @last != nil
+				@last.value
+			else
+				nil
+			end
+		end
 	end
 end
