@@ -24,10 +24,14 @@ describe Bibliografia do
 		end
 		
 		it "Debe se una subclase de Bibliografia" do
+		    expect(@ebook.is_a?Bibliografia::Bibliografia).to eq true 
+		end
+		
+		it "Debe se una subclase de object" do
 		    expect(@ebook.is_a?Object).to eq true 
 		end
 	    
-	    it "Debe se una subclase de Bibliografia" do
+	    it "Debe se una subclase de BasicObject" do
 		    expect(@ebook.is_a?BasicObject).to eq true 
 		end
 	end
