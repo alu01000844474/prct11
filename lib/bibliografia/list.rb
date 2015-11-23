@@ -3,6 +3,7 @@ module Bibliografia
 	Node = Struct.new(:value, :next, :back)
 
 	class List
+    include Enumerable
 		def initialize(*vals)
 			if vals.length == 0
 				@head = nil
@@ -13,6 +14,13 @@ module Bibliografia
 				end
 			end
 		end
+
+    def each
+      aux = @head
+      while aux != nil
+        yield aux.value
+      end
+    end
 
 		def takeFirst
 			if (@head==@last)
