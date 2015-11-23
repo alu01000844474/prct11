@@ -61,7 +61,7 @@ describe Bibliografia do
       expect(@list4.last).to eq "last"
     end
 	end
-  describe Bibliografia do
+  describe "La lista cumple los requisito de enumerable" do
     before :all do
       @ruby = Bibliografia::Bibliografia.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
                                              "Programmin Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
@@ -112,6 +112,12 @@ describe Bibliografia do
       expect(@list.takeLast).to be @ruby2
       expect(@list.takeLast).to be @git
       expect(@list.takeLast).to be @ruby
+    end
+
+    it "Enumerable implementado?" do
+      expect(@list.inject(true) do |state, libro|
+               state && libro.instance_of?(Bibliografia::Bibliografia)
+             end).to be true
     end
   end
 end
