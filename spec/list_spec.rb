@@ -62,7 +62,7 @@ describe Bibliografia do
     end
 	end
   describe "La lista cumple los requisito de enumerable" do
-    before :all do
+    before :each do
       @ruby = Bibliografia::Bibliografia.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
                                              "Programmin Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
                                              "The Facets of Ruby",
@@ -88,12 +88,12 @@ describe Bibliografia do
                                               ["ISBN-10: 0596516177", "ISBN-13: 978-0596516178"])
 
       @rspec = Bibliografia::Bibliografia.new(["David Chelimsky", "Dave Astels", "Bryan Helmkamp", "Dan North", "Zach Dennis", "Aslak Hellesoy"],
-                                               "The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends",
-                                               "The Facets of Ruby",
-                                               "Pragmatic Bookshelf",
-                                               1,
-                                               Date.new(2012,12,25),
-                                               ["ISBN-10: 1934356379","ISBN-13: 978-1934356371"])
+                                              "The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends",
+                                              "The Facets of Ruby",
+                                              "Pragmatic Bookshelf",
+                                              1,
+                                              Date.new(2012,12,25),
+                                              ["ISBN-10: 1934356379","ISBN-13: 978-1934356371"])
 
       @git2 =Bibliografia::Bibliografia.new(["Richard E. Silverman"],
                                             "Git Pocket Guide",
@@ -104,6 +104,7 @@ describe Bibliografia do
                                             ["ISBN-10: 1449325866","ISBN-13: 978-1449325862"])
 
       @list = Bibliografia::List.new(@ruby, @git, @ruby2, @rspec, @git2)
+      @list_empty = Bibliografia::List.new()
     end
 
     it "Pruebas con lista de referencias" do
@@ -118,6 +119,44 @@ describe Bibliografia do
       expect(@list.inject(true) do |state, libro|
                state && libro.instance_of?(Bibliografia::Bibliografia)
              end).to be true
+    end
+
+    it "comprobrando el metodo all?" do
+      expect(@list.all?).to eq(true)
+    end
+
+    it "comprobrando el metodo any?" do
+      expect(@list_empty.any?).to eq(false)
+    end
+
+    it "comprobrando el metodo collect" do
+      expect(@list.map{|i| i}).to eq([@ruby,@git,@ruby2,@rspec,@git2])
+      expect(@list.collect{|i| i}).to eq([@ruby,@git,@ruby2,@rspec,@git2])
+    end
+
+    it "comprobrando el metodo count" do
+      expect(@list.count).to eq(5)
+    end
+
+    it "comprobrando el metodo detect" do
+      expect(@list.detect {|i| i == @git}).to eq(@git)
+      expect(@list.find {|i| false }).to eq(nil)
+    end
+
+    it "comprobrando drop" do
+      expect(@list.drop(4)).to eq([@git2])
+    end
+
+    it "comprobrando max" do
+      expect(@list.max).to eq(@git)
+    end
+
+    it "comprobrando min" do
+      expect(@list.min).to eq(@ruby)
+    end
+
+    it "comprobrando sort" do
+      expect(@list.sort).to eq([@ruby,@rspec,@ruby2,@git2,@git])
     end
   end
 end

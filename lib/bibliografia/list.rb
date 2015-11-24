@@ -19,6 +19,7 @@ module Bibliografia
       aux = @head
       while aux != nil
         yield aux.value
+        aux = aux.next
       end
     end
 
