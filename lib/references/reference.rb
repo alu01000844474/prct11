@@ -1,6 +1,6 @@
-module Bibliografia
+module References
 
-  class Bibliografia
+  class Reference
     include Comparable
     attr_reader :autores, :titulo, :edicion, :numeroedicion, :serie, :fecha, :isbn
     def initialize(autores, titulo, serie, edicion, numeroedicion,fecha,isbn)

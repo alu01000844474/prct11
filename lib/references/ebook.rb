@@ -1,7 +1,7 @@
-require "bibliografia"
+require "references"
 
-module Bibliografia
-    class Ebook < Bibliografia
+module References
+    class Ebook < Reference
         def initialize(autores, titulo, serie, edicion, numeroedicion, fecha, url)
             super(autores, titulo, serie, edicion, numeroedicion, fecha, [])
             @url = url

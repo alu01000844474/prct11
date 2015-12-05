@@ -1,4 +1,4 @@
-module Bibliografia
+module References
 	# Struct of a list
 	Node = Struct.new(:value, :next, :back)
 
