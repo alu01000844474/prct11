@@ -1,6 +1,6 @@
 require "references"
 
 module References
-    class Libro < Reference
+    class Book < Reference
     end
 end

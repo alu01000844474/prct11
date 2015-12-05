@@ -2,8 +2,8 @@ require 'references/version'
 require 'references/reference'
 require 'references/list'
 require 'references/ebook'
-require 'references/revista'
-require 'references/libro'
+require 'references/magazine'
+require 'references/book'
 
 module References
 end
