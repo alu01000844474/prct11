@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Comparable overload methods" do
   before :each do
-    @git = Bibliografia::Bibliografia.new(["Scott Chacon"],
+    @git = References::Reference.new(["Scott Chacon"],
                                           "Pro Git 2009th Edition",
                                           "Pro",
                                           "Apress",
@@ -10,7 +10,7 @@ describe "Comparable overload methods" do
                                           Date.new(2009,8,27),
                                           ["ISBN-13: 9781430218333", "ISBN-12: 1430218339"])
 
-    @gitCompar = Bibliografia::Bibliografia.new(["Scott Chacon"],
+    @gitCompar = References::Reference.new(["Scott Chacon"],
                                                 "Pro Git 2009th Edition",
                                                 "Pro",
                                                 "Apress",
@@ -18,7 +18,7 @@ describe "Comparable overload methods" do
                                                 Date.new(2009,8,27),
                                                 ["ISBN-13: 9781430218333", "ISBN-12: 1430218339"])
 
-    @git2 =Bibliografia::Bibliografia.new(["Richard E. Silverman"],
+    @git2 =References::Reference.new(["Richard E. Silverman"],
                                           "Git Pocket Guide",
                                           nil,
                                           "O'Really Media",

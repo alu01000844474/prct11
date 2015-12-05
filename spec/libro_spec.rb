@@ -1,10 +1,11 @@
+# coding: utf-8
 require 'spec_helper'
 require 'date'
 
-describe Bibliografia do
-	describe Bibliografia::Libro do
+describe References do
+	describe References::Libro do
 		before :all do
-		    @libro = Bibliografia::Libro.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
+		    @libro = References::Libro.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
 			    "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide",
 			    "The Facets of Ruby",
 			    "Pragmatic Bookshelf",4,Date.new(2013,7,7),
@@ -12,7 +13,7 @@ describe Bibliografia do
 		end
 		
 	    it "Debe de existir una clase Libro que reciba parametros" do
-	        expect(Bibliografia::Libro.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
+	        expect(References::Libro.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
 			    "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide",
 			    "The Facets of Ruby",
 			    "Pragmatic Bookshelf",4,Date.new(2013,7,7),
@@ -20,11 +21,11 @@ describe Bibliografia do
         end
         
         it "Debe ser un Libro" do
-		    expect(@libro.is_a?Bibliografia::Libro).to eq true 
+		    expect(@libro.is_a?References::Libro).to eq true 
 		end
 		
-		it "Debe se una subclase de Bibliografia" do
-		    expect(@libro.is_a?Bibliografia::Bibliografia).to eq true 
+		it "Debe se una subclase de Reference" do
+		    expect(@libro.is_a?References::Reference).to eq true 
 		end
 		
 		it "Debe se una subclase de Object" do

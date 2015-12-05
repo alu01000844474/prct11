@@ -1,13 +1,13 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'bibliografia/version'
+require 'references/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "bibliografia"
-  spec.version       = Bibliografia::VERSION
+  spec.name          = "references"
+  spec.version       = References::VERSION
   spec.authors       = ["Jose Luis Gonzalez Hernandez","Eleazar Díaz Delgado"]
-  spec.email         = ["alu0100611281@ull.edu.es","alu010084474@ull.edu.es"]
+  spec.email         = ["alu0100611281@ull.edu.es","alu0100844474@ull.edu.es"]
 
   spec.summary       = %q{Manipulacion de referencias}
   spec.description   = %q{Manipulacion de referencias de bibliografia}

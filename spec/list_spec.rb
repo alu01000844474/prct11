@@ -2,11 +2,11 @@
 require 'spec_helper'
 require 'date'
 
-describe Bibliografia do
-	describe Bibliografia::Node do
+describe References do
+	describe References::Node do
 		before :each do
-			@node2 = Bibliografia::Node.new("dato2",nil)
-			@node = Bibliografia::Node.new("dato", @node2) 
+			@node2 = References::Node.new("dato2",nil)
+			@node = References::Node.new("dato", @node2) 
 		end
 
 		it 'Debe existir un nodo de la lista con sus datos y su siguiente'  do
@@ -14,13 +14,13 @@ describe Bibliografia do
 			expect(@node.next).to be @node2
 		end
 	end
-	describe Bibliografia::List do
+	describe References::List do
 		before :all do
-			@list = Bibliografia::List.new(0)
-			@list2 = Bibliografia::List.new()
-			@list3 = Bibliografia::List.new(0,1,2,3,4,5,6,7,8,9)
-			@list4 = Bibliografia::List.new("head","last")
-      @list5 = Bibliografia::List.new('a','b','c')
+			@list = References::List.new(0)
+			@list2 = References::List.new()
+			@list3 = References::List.new(0,1,2,3,4,5,6,7,8,9)
+			@list4 = References::List.new("head","last")
+      @list5 = References::List.new('a','b','c')
 		end
 
 		it 'Se extrae el primer elemento de la lista' do
@@ -63,7 +63,7 @@ describe Bibliografia do
 	end
   describe "La lista cumple los requisito de enumerable" do
     before :each do
-      @ruby = Bibliografia::Bibliografia.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
+      @ruby = References::Reference.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
                                              "Programmin Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
                                              "The Facets of Ruby",
                                              "Pragmatic Bookshelf",
@@ -71,7 +71,7 @@ describe Bibliografia do
                                              Date.new(2013,7,7),
                                              ["ISBN-13: 978-1937785499","ISBN-10: 1937785491"])
 
-      @git = Bibliografia::Bibliografia.new(["Scott Chacon"],
+      @git = References::Reference.new(["Scott Chacon"],
                                             "Pro Git 2009th Edition",
                                             "Pro",
                                             "Apress",
@@ -79,7 +79,7 @@ describe Bibliografia do
                                             Date.new(2009,8,27),
                                             ["ISBN-13: 9781430218333", "ISBN-12: 1430218339"])
 
-      @ruby2 = Bibliografia::Bibliografia.new(["David Flanagan", "Yukihiro Matsumoto"],
+      @ruby2 = References::Reference.new(["David Flanagan", "Yukihiro Matsumoto"],
                                               "The Ruby Programmin Language",
                                               nil,
                                               "O'Really Media",
@@ -87,7 +87,7 @@ describe Bibliografia do
                                               Date.new(2008,2,4),
                                               ["ISBN-10: 0596516177", "ISBN-13: 978-0596516178"])
 
-      @rspec = Bibliografia::Bibliografia.new(["David Chelimsky", "Dave Astels", "Bryan Helmkamp", "Dan North", "Zach Dennis", "Aslak Hellesoy"],
+      @rspec = References::Reference.new(["David Chelimsky", "Dave Astels", "Bryan Helmkamp", "Dan North", "Zach Dennis", "Aslak Hellesoy"],
                                               "The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends",
                                               "The Facets of Ruby",
                                               "Pragmatic Bookshelf",
@@ -95,7 +95,7 @@ describe Bibliografia do
                                               Date.new(2012,12,25),
                                               ["ISBN-10: 1934356379","ISBN-13: 978-1934356371"])
 
-      @git2 =Bibliografia::Bibliografia.new(["Richard E. Silverman"],
+      @git2 =References::Reference.new(["Richard E. Silverman"],
                                             "Git Pocket Guide",
                                             nil,
                                             "O'Really Media",
@@ -103,8 +103,8 @@ describe Bibliografia do
                                             Date.new(2013, 8, 2),
                                             ["ISBN-10: 1449325866","ISBN-13: 978-1449325862"])
 
-      @list = Bibliografia::List.new(@ruby, @git, @ruby2, @rspec, @git2)
-      @list_empty = Bibliografia::List.new()
+      @list = References::List.new(@ruby, @git, @ruby2, @rspec, @git2)
+      @list_empty = References::List.new()
     end
 
     it "Pruebas con lista de referencias" do
@@ -117,7 +117,7 @@ describe Bibliografia do
 
     it "Enumerable implementado?" do
       expect(@list.inject(true) do |state, libro|
-               state && libro.instance_of?(Bibliografia::Bibliografia)
+               state && libro.instance_of?(References::Reference)
              end).to be true
     end
 

@@ -1,15 +1,16 @@
+# coding: utf-8
 require 'spec_helper'
 
-describe Bibliografia do
+describe References do
 	before :each do
-	@referencia = Bibliografia::Bibliografia.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
+	@referencia = References::Reference.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
 			"Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide",
 			"The Facets of Ruby",
 			"Pragmatic Bookshelf",4,Date.new(2013,7,7),
 			["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])
 	end
   it 'has a version number' do
-    expect(Bibliografia::VERSION).not_to be nil
+    expect(References::VERSION).not_to be nil
   end
 
   it 'Debe existir uno o mas autores' do
