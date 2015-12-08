@@ -16,15 +16,15 @@ module References
     # Format book reference to APA standard
     # @return [String] format outputç
     def formatAPA
-      ((@authors.map { |x| x.to_s }).prettyOutput + "(" + @date + ")" + @title +
+      (prettyOutput(@authors.map { |x| x.to_s }) + "(" + @date.year.to_s + ") " + @title +
         if @subtitle
-          ": " + @subtitle + ". \n"
+          ": " + @subtitle + "."
         else
           ""
-        end
-      + "\n\t(" + @edition + ")"
-      + "(" + @editionnumber + ")"
-      + @isbn)
+        end +
+       "\n\t(" + @edition.to_s + ") " +
+       "(" + @editionnumber.to_s + ") " +
+       @isbn.join(", "))
     end
   end
 end

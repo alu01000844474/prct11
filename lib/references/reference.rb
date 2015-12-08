@@ -1,12 +1,5 @@
 # coding: utf-8
 module References
-
-  class Array
-    def prettyOutput
-      self[0..-2].join("") + " & " + self[-1]
-    end
-  end
-
   class Reference
     include Comparable
     attr_reader :authors, :title, :edition, :editionnumber, :serie, :date, :isbn
@@ -18,6 +11,16 @@ module References
       @editionnumber = editionnumber
       @date = date
       @isbn = isbn
+    end
+
+    def prettyOutput(array)
+      if array.length > 1
+        array[0..-2].join("") + " & " + array[-1]
+      elsif array.length == 1
+        array[0]
+      else
+        ""
+      end
     end
 
     def <=>(other)
