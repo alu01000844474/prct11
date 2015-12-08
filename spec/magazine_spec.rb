@@ -35,7 +35,7 @@ describe References do
 		  expect(@revista.is_a?BasicObject).to eq true 
 		end
     it "Debe seguir el estandar APA" do
-      expect(@revista.formatAPA).to eq "Thomas, D. (2013) Programming Ruby \n\t(Pragmatic Bookshelf) (4) 777744545-4-7874"
+      expect(@revista.formatAPA).to eq "Thomas, D. (2013) Programming Ruby\n\t(Pragmatic Bookshelf) (4) 777744545-4-7874"
     end
 	end
 end
