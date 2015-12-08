@@ -1,3 +1,4 @@
+# coding: utf-8
 module Reference
   class Name
     include Comparable

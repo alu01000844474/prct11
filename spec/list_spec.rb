@@ -148,15 +148,15 @@ describe References do
     end
 
     it "comprobrando max" do
-      expect(@list.max).to eq(@git)
+      expect(@list.max).to eq(@ruby2)
     end
 
     it "comprobrando min" do
-      expect(@list.min).to eq(@ruby)
+      expect(@list.min).to eq(@git2)
     end
 
     it "comprobrando sort" do
-      expect(@list.sort).to eq([@ruby,@rspec,@ruby2,@git2,@git])
+      expect(@list.sort).to eq([@git2,@ruby,@rspec,@git,@ruby2])
     end
   end
 end
