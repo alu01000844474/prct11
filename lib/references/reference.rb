@@ -1,28 +1,38 @@
 module References
 
+  class Array
+    def prettyOutput
+      self[0..-2].join("") + " & " + self[-1]
+    end
+  end
+
   class Reference
     include Comparable
-    attr_reader :autores, :titulo, :edicion, :numeroedicion, :serie, :fecha, :isbn
-    def initialize(autores, titulo, serie, edicion, numeroedicion,fecha,isbn)
-      @autores = autores
-      @titulo = titulo
+    attr_reader :authors, :title, :edition, :editionnumber, :serie, :date, :isbn
+    def initialize(authors, title, serie, edition, editionnumber,date,isbn)
+      @authors = authors
+      @title = title
       @serie = serie
-      @edicion = edicion
-      @numeroedicion = numeroedicion
-      @fecha = fecha
+      @edition = edition
+      @editionnumber = editionnumber
+      @date = date
       @isbn = isbn
     end
 
     def <=>(other)
-      @autores <=> other.autores
+      int = other.authors <=> @authors
+      if int = 0
+        int = other.date <=> @date
+      end
+      int
     end
 
-    def cantidadAutores()
-      @autores.length()
+    def cantidadAuthors()
+      @authors.length()
     end
 
-    def hasTitulo
-      if @titulo then
+    def hasTitle
+      if @title then
         true
       else
         false
@@ -37,24 +47,24 @@ module References
       end
     end
 
-    def hasEdicion
-      if @edicion then
+    def hasEdition
+      if @edition then
         true
       else
         false
       end
     end
 
-    def hasNumeroedicion
-      if @numeroedicion then
+    def hasEditionnumber
+      if @editionnumber then
         true
       else
         false
       end
     end
 
-    def hasFecha
-      if @fecha then
+    def hasDate
+      if @date then
         true
       else
         false
@@ -65,22 +75,9 @@ module References
       @isbn.length
     end
 
-    def formatref
-      c =  ""
-      c << @autores.join(", ")
-      c << "."
-      c << "\n"
-      c << @titulo
-      c << "\n"
-      c << "(" + @serie + ")"  if cantidadSeries == 1
-      c << "\n"
-      c << @edicion + "; " + numeroedicion.to_s + " edition "
-      c << "("+ @fecha.strftime('%b %d, %Y')+")"
-      c << "\n"
-      c << @isbn.join("\n")
-      c
+    def formatAPA
+      "Not format abstract class"
     end
-
   end
 
 end

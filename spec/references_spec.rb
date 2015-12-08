@@ -14,11 +14,11 @@ describe References do
   end
 
   it 'Debe existir uno o mas autores' do
-	@referencia.cantidadAutores.should>=1
+	@referencia.cantidadAuthors.should>=1
   end
 
 	it 'Debe existir un titulo' do
-	@referencia.hasTitulo.should==true
+	@referencia.hasTitle.should==true
   end
 
 	 it 'Debe existir o no una serie' do
@@ -27,15 +27,15 @@ describe References do
   end
 
 	it 'Debe existir una editorial' do
-	@referencia.hasEdicion.should==true
+	@referencia.hasEdition.should==true
   end
 
   it 'Debe existir un numero de edicion' do
-	@referencia.hasNumeroedicion.should==true
+	@referencia.hasEditionnumber.should==true
   end
 
 	it 'Debe existir una fecha' do
-	@referencia.hasFecha.should==true
+	@referencia.hasDate.should==true
   end
 
 	it 'Debe existir uno o mas numeros ISBN' do
@@ -43,11 +43,11 @@ describe References do
   end
 
 	it 'Existe un metodo para obtener el listado de autores' do
-	@referencia.autores.should==["Dave Thomas", "Andy Hunt", "Chad Fowler"]
+	@referencia.authors.should==["Dave Thomas", "Andy Hunt", "Chad Fowler"]
   end
 
 	it 'Existe un metodo para obtener el tıtulo' do
-	@referencia.titulo.should=="Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide"
+	@referencia.title.should=="Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide"
   end
 
 	it 'Existe un metodo para obtener la serie' do
@@ -55,28 +55,28 @@ describe References do
   end
 
 	it 'Existe un metodo para obtener la edicion' do
-	@referencia.edicion.should=="Pragmatic Bookshelf"
+	@referencia.edition.should=="Pragmatic Bookshelf"
   end
 
 	it 'Existe un metodo para obtener el numero de edicion' do
-	@referencia.numeroedicion.should==4
+	@referencia.editionnumber.should==4
   end
 
 	it 'Existe un metodo para obtener la fecha de publicacion' do
-	@referencia.fecha.should==Date.new(2013,7,7)
+	@referencia.date.should==Date.new(2013,7,7)
   end
 
 	it 'Existe un metodo para obtener el ISBN' do
 	@referencia.isbn.should==["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"]
   end
 
-	it 'Existe un metodo para obtener la referencia formateada' do
-	@referencia.formatref.should=="Dave Thomas, Andy Hunt, Chad Fowler.
-Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide
-(The Facets of Ruby)
-Pragmatic Bookshelf; 4 edition (Jul 07, 2013)
-ISBN-13: 978-1937785499
-ISBN-10: 1937785491"
-  end
+# 	it 'Existe un metodo para obtener la referencia formateada' do
+# 	@referencia.formatref.should=="Dave Thomas, Andy Hunt, Chad Fowler.
+# Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide
+# (The Facets of Ruby)
+# Pragmatic Bookshelf; 4 edition (Jul 07, 2013)
+# ISBN-13: 978-1937785499
+# ISBN-10: 1937785491"
+#   end
 
 end
