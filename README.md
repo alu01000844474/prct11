@@ -1,13 +1,15 @@
-# Bibliografia PRCT09
+# Reference PRCT09
 
-[![Build Status](https://travis-ci.org/alu01000844474/prct09.svg?branch=master)](https://travis-ci.org/alu01000844474/prct09)
+[![Build Status](https://travis-ci.org/alu01000844474/prct10.svg?branch=master)](https://travis-ci.org/alu01000844474/prct10)
+
+[![Coverage Status](https://coveralls.io/repos/alu01000844474/prct10/badge.svg?branch=master&service=github)](https://coveralls.io/github/alu01000844474/prct10?branch=master)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'bibliografia'
+gem 'references'
 ```
 
 And then execute:
@@ -16,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install bibliografia
+    $ gem install references
 
 
 ## Development
@@ -27,7 +29,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/bibliografia. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/alu01000844474/bibliografia. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
