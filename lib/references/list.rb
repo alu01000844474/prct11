@@ -104,5 +104,9 @@ module References
 				nil
 			end
 		end
+
+    def to_s
+      (self.sort.map { |x| x.formatAPA }).join("\n")
+    end
 	end
 end

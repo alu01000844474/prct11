@@ -63,45 +63,48 @@ describe References do
 	end
   describe "La lista cumple los requisito de enumerable" do
     before :each do
-      @ruby = References::Reference.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
-                                             "Programmin Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
-                                             "The Facets of Ruby",
-                                             "Pragmatic Bookshelf",
-                                             4,
-                                             Date.new(2013,7,7),
-                                             ["ISBN-13: 978-1937785499","ISBN-10: 1937785491"])
+      @ruby = References::Book.new([References::Name.new("Thomas","Dave"),
+                                         References::Name.new("Hunt","Andy"),
+                                         References::Name.new(" Fowler","Chad")],
+                                        "Programmin Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
+                                        "The Facets of Ruby",
+                                        "Pragmatic Bookshelf",
+                                        4,
+                                        Date.new(2013,7,7),
+                                        ["ISBN-13: 978-1937785499","ISBN-10: 1937785491"])
 
-      @git = References::Reference.new(["Scott Chacon"],
-                                            "Pro Git 2009th Edition",
-                                            "Pro",
-                                            "Apress",
-                                            2009,
-                                            Date.new(2009,8,27),
-                                            ["ISBN-13: 9781430218333", "ISBN-12: 1430218339"])
+      @git = References::Book.new([References::Name.new("Chacon","Scott")],
+                                       "Pro Git 2009th Edition",
+                                       "Pro",
+                                       "Apress",
+                                       2009,
+                                       Date.new(2009,8,27),
+                                       ["ISBN-13: 9781430218333", "ISBN-12: 1430218339"])
 
-      @ruby2 = References::Reference.new(["David Flanagan", "Yukihiro Matsumoto"],
-                                              "The Ruby Programmin Language",
-                                              nil,
-                                              "O'Really Media",
-                                              1,
-                                              Date.new(2008,2,4),
-                                              ["ISBN-10: 0596516177", "ISBN-13: 978-0596516178"])
+      @ruby2 = References::Book.new([References::Name.new("Flanagan","David"),
+                                          References::Name.new("Matsumoto","Yukihiro")],
+                                         "The Ruby Programmin Language",
+                                         nil,
+                                         "O'Really Media",
+                                         1,
+                                         Date.new(2008,2,4),
+                                         ["ISBN-10: 0596516177", "ISBN-13: 978-0596516178"])
 
-      @rspec = References::Reference.new(["David Chelimsky", "Dave Astels", "Bryan Helmkamp", "Dan North", "Zach Dennis", "Aslak Hellesoy"],
-                                              "The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends",
-                                              "The Facets of Ruby",
-                                              "Pragmatic Bookshelf",
-                                              1,
-                                              Date.new(2012,12,25),
-                                              ["ISBN-10: 1934356379","ISBN-13: 978-1934356371"])
+      @rspec = References::Book.new([References::Name.new("Chelimsky","David"), References::Name.new("Astels","Dave")],
+                                         "The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends",
+                                         "The Facets of Ruby",
+                                         "Pragmatic Bookshelf",
+                                         1,
+                                         Date.new(2012,12,25),
+                                         ["ISBN-10: 1934356379","ISBN-13: 978-1934356371"])
 
-      @git2 =References::Reference.new(["Richard E. Silverman"],
-                                            "Git Pocket Guide",
-                                            nil,
-                                            "O'Really Media",
-                                            1,
-                                            Date.new(2013, 8, 2),
-                                            ["ISBN-10: 1449325866","ISBN-13: 978-1449325862"])
+      @git2 =References::Book.new([References::Name.new("Silverman","Richard")],
+                                       "Git Pocket Guide",
+                                       nil,
+                                       "O'Really Media",
+                                       1,
+                                       Date.new(2013, 8, 2),
+                                       ["ISBN-10: 1449325866","ISBN-13: 978-1449325862"])
 
       @list = References::List.new(@ruby, @git, @ruby2, @rspec, @git2)
       @list_empty = References::List.new()
@@ -117,7 +120,7 @@ describe References do
 
     it "Enumerable implementado?" do
       expect(@list.inject(true) do |state, libro|
-               state && libro.instance_of?(References::Reference)
+               state && libro.instance_of?(References::Book)
              end).to be true
     end
 
@@ -158,5 +161,19 @@ describe References do
     it "comprobrando sort" do
       expect(@list.sort).to eq([@git2,@ruby,@rspec,@git,@ruby2])
     end
+
+    it "formato APA" do
+      expect(@list.to_s).to eq "Silverman, R. (2013) Git Pocket Guide
+\t(O'Really Media) (1) ISBN-10: 1449325866, ISBN-13: 978-1449325862
+Thomas, D. Hunt, A.  & Fowler, C. (2013) Programmin Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide: The Facets of Ruby.
+\t(Pragmatic Bookshelf) (4) ISBN-13: 978-1937785499, ISBN-10: 1937785491
+Chelimsky, D.  & Astels, D. (2012) The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends: The Facets of Ruby.
+\t(Pragmatic Bookshelf) (1) ISBN-10: 1934356379, ISBN-13: 978-1934356371
+Chacon, S. (2009) Pro Git 2009th Edition: Pro.
+\t(Apress) (2009) ISBN-13: 9781430218333, ISBN-12: 1430218339
+Flanagan, D.  & Matsumoto, Y. (2008) The Ruby Programmin Language
+\t(O'Really Media) (1) ISBN-10: 0596516177, ISBN-13: 978-0596516178"
+    end
+
   end
 end
