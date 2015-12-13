@@ -2,19 +2,18 @@
 require "references"
 
 module References
+
+  def isbn(isbn)
+    if @isbn.nil?
+      @isbn = []
+    end
+    @isbn << isbn
+  end
+
   # Represent a book reference
   class Book < Reference
-    def initialize(authors, title, subtitle, edition, editionnumber, date, isbn)
-      @authors = authors
-      @title = title
-      @subtitle = subtitle
-      @edition = edition
-      @editionnumber = editionnumber
-      @date = date
-      @isbn = isbn
-    end
     # Format book reference to APA standard
-    # @return [String] format outputç
+    # @return [String] format output
     def formatAPA
       (prettyOutput(@authors.map { |x| x.to_s }) + "(" + @date.year.to_s + ") " + @title +
         if @subtitle
@@ -28,3 +27,4 @@ module References
     end
   end
 end
+

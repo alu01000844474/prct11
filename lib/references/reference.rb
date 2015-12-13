@@ -1,16 +1,32 @@
 # coding: utf-8
 module References
+
+  def title(title)
+    @title = title
+  end
+
+  def date(date)
+    @date = Date.new(date[:year],date[:month],date[:day])
+  end
+
+  def editorial(editorial)
+    @serie = editorial[:serie]
+    @edition = editorial[:edition]
+    @editionnumber = editorial[:editionnumber]
+  end
+
+  def author(hash)
+    if @authors.nil?
+      @authors = []
+    end
+    @authors << References::Name.new(hash[:surnames], hash[:names])
+  end
+
   class Reference
     include Comparable
-    attr_reader :authors, :title, :edition, :editionnumber, :serie, :date, :isbn
-    def initialize(authors, title, serie, edition, editionnumber,date,isbn)
-      @authors = authors
-      @title = title
-      @serie = serie
-      @edition = edition
-      @editionnumber = editionnumber
-      @date = date
-      @isbn = isbn
+    attr_accessor :authors, :title, :edition, :editionnumber, :serie, :date, :isbn
+    def initialize(&clousure)
+      clousure.call
     end
 
     def prettyOutput(array)

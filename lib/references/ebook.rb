@@ -3,11 +3,13 @@ require "references"
 require "date"
 
 module References
+
+  def url(url)
+    self.url = url
+  end
+
   class Ebook < Reference
-    def initialize(autores, titulo, serie, edicion, numeroedicion, fecha, url)
-      super(autores, titulo, serie, edicion, numeroedicion, fecha, [])
-      @url = url
-    end
+    attr_accessor :url
     # Format book reference to APA standard
     # @return [String] format outputç
     def formatAPA

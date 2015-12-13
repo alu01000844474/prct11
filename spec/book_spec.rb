@@ -2,24 +2,34 @@
 require 'spec_helper'
 require 'date'
 
+include References
+
 describe References do
 	describe References::Book do
 		before :all do
-		  @libro = References::Book.new([References::Name.new("Thomas", "Dave"),
-                                     References::Name.new("Hunt","Andy"),
-                                     References::Name.new("Chad","Fowler")],
-			                              "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide",
-			                              "The Facets of Ruby",
-			                              "Pragmatic Bookshelf",4,Date.new(2013,7,7),
-			                              ["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])
+      @libro = References::Book.new do
+        author :surnames => "Thomas",
+               :names    => "Dave"
+        author :surnames => "Hunt",
+               :names    => "Andy"
+        author :surnames => "Chad",
+               :names    => "Fowler"
+
+        title "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide"
+
+        editorial :serie =>  "The Facets of Ruby",
+                  :edtion => "Pragmatic Bookself",
+                  :editionnumber => 4
+
+        date :year => 2013, :month => 7, :day => 7
+
+        isbn "ISBN-13: 978-1937785499"
+        isbn "ISBN-10: 1937785491"
+      end
 		end
 
 	  it "Debe de existir una clase Book que reciba parametros" do
-	    expect(References::Book.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"],
-			                            "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide",
-			                            "The Facets of Ruby",
-			                            "Pragmatic Bookshelf",4,Date.new(2013,7,7),
-			                            ["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])).to_not be nil
+	    expect(@libro).to_not be nil
     end
 
     it "Debe ser un Book" do
