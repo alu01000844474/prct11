@@ -1,32 +1,47 @@
 # coding: utf-8
 module References
-
-  def title(title)
-    @title = title
-  end
-
-  def date(date)
-    @date = Date.new(date[:year],date[:month],date[:day])
-  end
-
-  def editorial(editorial)
-    @serie = editorial[:serie]
-    @edition = editorial[:edition]
-    @editionnumber = editorial[:editionnumber]
-  end
-
-  def author(hash)
-    if @authors.nil?
-      @authors = []
-    end
-    @authors << References::Name.new(hash[:surnames], hash[:names])
-  end
-
   class Reference
     include Comparable
-    attr_accessor :authors, :title, :edition, :editionnumber, :serie, :date, :isbn
-    def initialize(&clousure)
-      clousure.call
+    # attr_accessor :authors, :title, :edition, :editionnumber, :serie, :date, :isbn
+    attr_accessor :authors
+    def initialize(&block)
+      instance_eval &block
+    end
+
+    def method_missing(method, *args, &block)
+      methods = { :title =>
+                  proc do def title(title)
+                            @title = title
+                          end
+                  end,
+                  :date  =>
+                  proc do def date(date)
+                            @date = Date.new(date[:year],date[:month],date[:day])
+                          end
+                  end,
+                  :editorial =>
+                  proc do def editorial(editorial)
+                            @serie = editorial[:serie]
+                            @edition = editorial[:edition]
+                            @editionnumber = editorial[:editionnumber]
+                          end
+                  end,
+                  :author =>
+                  proc do def author(hash)
+                            if @authors.nil?
+                              @authors = []
+                            end
+                            @authors << References::Name.new(hash[:surnames], hash[:names])
+                          end
+                  end
+                }
+
+      if methods.key?method
+        instance_eval &methods[method]
+        send method, *args
+      else
+        super(method, args, &block)
+      end
     end
 
     def prettyOutput(array)

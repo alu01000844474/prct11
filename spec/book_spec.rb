@@ -15,10 +15,12 @@ describe References do
         author :surnames => "Chad",
                :names    => "Fowler"
 
-        title "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide"
+        title "Programming Ruby 1.9 & 2.0"
+
+        subtitle "The Pragmatic Programmers’ Guide"
 
         editorial :serie =>  "The Facets of Ruby",
-                  :edtion => "Pragmatic Bookself",
+                  :edition => "Pragmatic Bookshelf",
                   :editionnumber => 4
 
         date :year => 2013, :month => 7, :day => 7
@@ -49,7 +51,7 @@ describe References do
 		end
 
     it "Debe seguir el estandar APA" do
-      expect(@libro.formatAPA).to eq "Thomas, D. Hunt, A.  & Chad, F. (2013) Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide: The Facets of Ruby.\n\t(Pragmatic Bookshelf) (4) ISBN-13: 978-1937785499, ISBN-10: 1937785491"
+      expect(@libro.formatAPA).to eq "Thomas, D. Hunt, A.  & Chad, F. (2013) Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide.\n\tThe Facets of Ruby. (Pragmatic Bookshelf) (4) ISBN-13: 978-1937785499, ISBN-10: 1937785491"
     end
 
 	end
