@@ -1,8 +1,7 @@
-# Reference PRCT10
+# Reference PRCT11
 
-[![Build Status](https://travis-ci.org/alu01000844474/prct10.svg?branch=master)](https://travis-ci.org/alu01000844474/prct10)
-
-[![Coverage Status](https://coveralls.io/repos/alu01000844474/prct10/badge.svg?branch=master&service=github)](https://coveralls.io/github/alu01000844474/prct10?branch=master)
+[![Build Status](https://travis-ci.org/alu01000844474/prct11.svg?branch=master)](https://travis-ci.org/alu01000844474/prct11)
+[![Coverage Status](https://coveralls.io/repos/alu01000844474/prct11/badge.svg?branch=master&service=github)](https://coveralls.io/github/alu01000844474/prct11?branch=master)
 
 ## Installation
 
@@ -20,6 +19,8 @@ Or install it yourself as:
 
     $ gem install references
 
+## Documentation
+You can found the documentation here[doc/index.html]
 
 ## Development
 
@@ -29,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/alu01000844474/bibliografia. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/alu01000844474/XXXXX -PRCT11. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
