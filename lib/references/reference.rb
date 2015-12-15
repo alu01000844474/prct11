@@ -2,46 +2,31 @@
 module References
   class Reference
     include Comparable
-    # attr_accessor :authors, :title, :edition, :editionnumber, :serie, :date, :isbn
-    attr_accessor :authors
+    #attr_accessor :authors, :title, :edition, :editionnumber, :serie, :date, :isbn
+    attr_accessor :authors, :datee
     def initialize(&block)
       instance_eval &block
     end
 
-    def method_missing(method, *args, &block)
-      methods = { :title =>
-                  proc do def title(title)
-                            @title = title
-                          end
-                  end,
-                  :date  =>
-                  proc do def date(date)
-                            @date = Date.new(date[:year],date[:month],date[:day])
-                          end
-                  end,
-                  :editorial =>
-                  proc do def editorial(editorial)
-                            @serie = editorial[:serie]
-                            @edition = editorial[:edition]
-                            @editionnumber = editorial[:editionnumber]
-                          end
-                  end,
-                  :author =>
-                  proc do def author(hash)
-                            if @authors.nil?
-                              @authors = []
-                            end
-                            @authors << References::Name.new(hash[:surnames], hash[:names])
-                          end
-                  end
-                }
-
-      if methods.key?method
-        instance_eval &methods[method]
-        send method, *args
-      else
-        super(method, args, &block)
+    def author(hash)
+      if @authors.nil?
+        @authors = []
       end
+      @authors << References::Name.new(hash[:surnames], hash[:names])
+    end
+
+    def title(title)
+      @title = title
+    end
+
+    def editorial(editorial)
+      @serie = editorial[:serie]
+      @edition = editorial[:edition]
+      @editionnumber = editorial[:editionnumber]
+    end
+
+    def date(date)
+      @datee = Date.new(date[:year],date[:month],date[:day])
     end
 
     def prettyOutput(array)
@@ -57,7 +42,7 @@ module References
     def <=>(other)
       int = other.authors <=> @authors
       if int = 0
-        int = other.date <=> @date
+        int = other.datee <=> @datee
       end
       int
     end
@@ -99,7 +84,7 @@ module References
     end
 
     def hasDate
-      if @date then
+      if @datee then
         true
       else
         false

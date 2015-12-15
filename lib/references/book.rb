@@ -9,7 +9,7 @@ module References
     # Format book reference to APA standard
     # @return [String] format output
     def formatAPA
-      (prettyOutput(@authors.map { |x| x.to_s }) + "(" + @date.year.to_s + ") " + @title +
+      (prettyOutput(@authors.map { |x| x.to_s }) + "(" + @datee.year.to_s + ") " + @title +
         if @subtitle
           ": " + @subtitle + "."
         else
@@ -20,28 +20,15 @@ module References
        @isbn.join(", "))
     end
 
-    def method_missing(method, *args, &block)
-      methods = { :subtitle =>
-                  proc do def subtitle(subtitle)
-                            @subtitle = subtitle
-                          end
-                  end,
-                  :isbn =>
-                  proc do def isbn(isbn)
-                            if @isbn.nil?
-                              @isbn = []
-                            end
-                            @isbn << isbn
-                          end
-                  end
-                }
+    def subtitle(subtitle)
+      @subtitle = subtitle
+    end
 
-      if methods.key?method
-        instance_eval &methods[method]
-        send method, *args
-      else
-        super(method, *args, &block)
+    def isbn(isbn)
+      if @isbn.nil?
+        @isbn = []
       end
+      @isbn << isbn
     end
   end
 end

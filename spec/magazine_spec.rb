@@ -4,19 +4,28 @@ require 'date'
 describe References do
 	describe References::Magazine do
 		before :all do
-		  @revista = References::Magazine.new([References::Name.new("Thomas", "Dave")],
-			                                    "Programming Ruby ",
-			                                    "The Facets of Ruby",
-			                                    "Pragmatic Bookshelf",4,Date.new(2013,7,7),
-			                                    "777744545-4-7874")
+		  @revista = References::Magazine.new do
+        author :surnames => "Thomas",
+               :names    => "Dave"
+        author :surnames => "Hunt",
+               :names    => "Andy"
+        author :surnames => "Chad",
+               :names    => "Fowler"
+
+        title "Programming Ruby 1.9 & 2.0"
+
+        editorial :serie =>  "The Facets of Ruby",
+                  :edition => "Pragmatic Bookshelf",
+                  :editionnumber => 4
+
+        date :year => 2013, :month => 7, :day => 7
+
+        issbn "777744545-4-7874"
+      end
 		end
 
 		it "Debe poderse pasarle todos los argumentos necesarios" do
-		  expect(References::Magazine.new([References::Name.new("Thomas", "Dave")],
-			                                "Programming Ruby ",
-			                                "The Facets of Ruby",
-			                                "Pragmatic Bookshelf",4,Date.new(2013,7,7),
-			                                "777744545-4-7874")).to_not be nil
+		  expect(@revista).to_not be nil
 		end
 
 	  it "Debe ser un Magazine" do
@@ -34,8 +43,9 @@ describe References do
 	  it "Debe se una subclase de BasicObject" do
 		  expect(@revista.is_a?BasicObject).to eq true 
 		end
+
     it "Debe seguir el estandar APA" do
-      expect(@revista.formatAPA).to eq "Thomas, D. (2013) Programming Ruby\n\t(Pragmatic Bookshelf) (4) 777744545-4-7874"
+      expect(@revista.formatAPA).to eq "Thomas, D. Hunt, A.  & Chad, F. (2013) Programming Ruby   \n\t(Pragmatic Bookshelf) (4) 777744545-4-7874"
     end
 	end
 end

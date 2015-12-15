@@ -1,30 +1,56 @@
+# coding: utf-8
 require 'spec_helper'
 
 describe "Comparable overload methods" do
   before :each do
-    @git = References::Reference.new(["Scott Chacon"],
-                                          "Pro Git 2009th Edition",
-                                          "Pro",
-                                          "Apress",
-                                          2009,
-                                          Date.new(2009,8,27),
-                                          ["ISBN-13: 9781430218333", "ISBN-12: 1430218339"])
+    @git = References::Book.new do
+      author :surnames => "Chacon",
+             :names    => "Scott"
+      title "Pro Git 2009th Edition"
 
-    @gitCompar = References::Reference.new(["Scott Chacon"],
-                                                "Pro Git 2009th Edition",
-                                                "Pro",
-                                                "Apress",
-                                                2009,
-                                                Date.new(2009,8,27),
-                                                ["ISBN-13: 9781430218333", "ISBN-12: 1430218339"])
+      subtitle "The Pragmatic Programmers’ Guide"
 
-    @git2 =References::Reference.new(["Richard E. Silverman"],
-                                          "Git Pocket Guide",
-                                          nil,
-                                          "O'Really Media",
-                                          1,
-                                          Date.new(2013, 8, 2),
-                                          ["ISBN-10: 1449325866","ISBN-13: 978-1449325862"])
+      editorial :serie =>  "Pro",
+                :edition =>  "Apress",
+                :editionnumber => 2009
+
+      date :year => 2009, :month => 8, :day => 27
+
+      isbn "ISBN-13: 9781430218333"
+      isbn "ISBN-12: 1430218339"
+    end
+
+    @gitCompar = References::Book.new do
+      author :surnames => "Chacon",
+             :names    => "Scott"
+      title "Pro Git 2009th Edition"
+
+      subtitle "The Pragmatic Programmers’ Guide"
+
+      editorial :serie =>  "Pro",
+                :edition =>  "Apress",
+                :editionnumber => 2009
+
+      date :year => 2009, :month => 8, :day => 27
+
+      isbn "ISBN-13: 9781430218333"
+      isbn "ISBN-12: 1430218339"
+    end
+
+    @git2 =References::Book.new do
+      author :surnames => "Silverman",
+             :names    => "Richard"
+      title "Git Pocket Guide"
+      subtitle "Behaviour Driven Development with RSpec, Cucumber, and Friends"
+      editorial :serie =>  nil,
+                :edition =>  "O'Really Media",
+                :editionnumber => 1
+
+      date :year => 2013, :month => 8, :day => 2
+
+      isbn "ISBN-10: 1449325866"
+      isbn "ISBN-13: 978-1449325862"
+    end
   end
 
   it "Debe de ser posible comparar mayor que, menor que " do
