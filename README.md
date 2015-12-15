@@ -20,7 +20,7 @@ Or install it yourself as:
     $ gem install references
 
 ## Documentation
-You can found the documentation here[../master/doc/index.html]
+You can found the documentation [here](../master/doc/index.html)
 
 ## Development
 
