@@ -2,6 +2,7 @@ module References
 	# Struct of a list
 	Node = Struct.new(:value, :next, :back)
 
+  # Is a double-linked list
 	class List
     include Enumerable
 		def initialize(*vals)

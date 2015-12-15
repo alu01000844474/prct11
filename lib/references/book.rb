@@ -2,8 +2,6 @@
 require "references"
 
 module References
-
- 
   # Represent a book reference
   class Book < Reference
     # Format book reference to APA standard
@@ -20,10 +18,14 @@ module References
        @isbn.join(", "))
     end
 
+    # Set subtitle of document
+    # params subtitle [String]
     def subtitle(subtitle)
       @subtitle = subtitle
     end
 
+    # Set some isbn of document, each isbn is store in a list, you can have some in the same book
+    # params isbn [String]
     def isbn(isbn)
       if @isbn.nil?
         @isbn = []
@@ -32,4 +34,3 @@ module References
     end
   end
 end
-
