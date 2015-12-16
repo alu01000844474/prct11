@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Manipulacion de referencias}
   spec.description   = %q{Manipulacion de referencias de bibliografia}
-  spec.homepage      = "none"
+  spec.homepage      = "http://www.ull.es"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
